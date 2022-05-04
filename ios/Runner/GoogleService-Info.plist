@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>7610537543-m7fc0162r4upi5df2pbgaklm077hitdm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.7610537543-m7fc0162r4upi5df2pbgaklm077hitdm</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>7610537543-d7bncf8q3etd1k6dv4h0cb3r7ktf2boh.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEWZm9L12clWKb0KOwqNYLzcU04N4g1SE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>7610537543</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.iqraetech.allabib</string>
+	<key>PROJECT_ID</key>
+	<string>al-labib-lawyers</string>
+	<key>STORAGE_BUCKET</key>
+	<string>al-labib-lawyers.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:7610537543:ios:875c5120908d225e848362</string>
+</dict>
+</plist>

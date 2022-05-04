@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "7610537543",
+    "project_id": "al-labib-lawyers",
+    "storage_bucket": "al-labib-lawyers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7610537543:android:1b0e32dcf78641fb848362",
+        "android_client_info": {
+          "package_name": "com.flutterflow.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7610537543-fia1qckjjgkcfm447aaj4asr1vst6l5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkAAIbY96b5iXnZ8jKznC4s8VtaPBDOq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7610537543-fia1qckjjgkcfm447aaj4asr1vst6l5l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "7610537543-m7fc0162r4upi5df2pbgaklm077hitdm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iqraetech.allabib"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7610537543:android:7f75167a74302307848362",
+        "android_client_info": {
+          "package_name": "com.iqraetech.allabib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7610537543-d7bncf8q3etd1k6dv4h0cb3r7ktf2boh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iqraetech.allabib",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "7610537543-fia1qckjjgkcfm447aaj4asr1vst6l5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkAAIbY96b5iXnZ8jKznC4s8VtaPBDOq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7610537543-fia1qckjjgkcfm447aaj4asr1vst6l5l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "7610537543-m7fc0162r4upi5df2pbgaklm077hitdm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iqraetech.allabib"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
