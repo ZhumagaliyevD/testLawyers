@@ -77,70 +77,83 @@ class _ReportByLawyerWidgetState extends State<ReportByLawyerWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: FFButtonWidget(
-              onPressed: () async {
-                logFirebaseEvent('Button-ON_TAP');
-                logFirebaseEvent('Button-Upload-Photo-Video');
-                final selectedMedia = await selectMediaWithSourceBottomSheet(
-                  context: context,
-                  allowPhoto: true,
-                  allowVideo: true,
-                );
-                if (selectedMedia != null &&
-                    selectedMedia.every(
-                        (m) => validateFileFormat(m.storagePath, context))) {
-                  showUploadMessage(
-                    context,
-                    'Uploading file...',
-                    showLoading: true,
-                  );
-                  final downloadUrls = await Future.wait(selectedMedia.map(
-                      (m) async => await uploadData(m.storagePath, m.bytes)));
-                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  if (downloadUrls != null) {
-                    setState(() => uploadedFileUrl = downloadUrls.first);
-                    showUploadMessage(
-                      context,
-                      'Success!',
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    logFirebaseEvent('Button-ON_TAP');
+                    logFirebaseEvent('Button-Upload-Photo-Video');
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      allowPhoto: true,
+                      allowVideo: true,
                     );
-                  } else {
-                    showUploadMessage(
-                      context,
-                      'Failed to upload media',
-                    );
-                    return;
-                  }
-                }
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      showUploadMessage(
+                        context,
+                        'Uploading file...',
+                        showLoading: true,
+                      );
+                      final downloadUrls = await Future.wait(selectedMedia.map(
+                          (m) async =>
+                              await uploadData(m.storagePath, m.bytes)));
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      if (downloadUrls != null) {
+                        setState(() => uploadedFileUrl = downloadUrls.first);
+                        showUploadMessage(
+                          context,
+                          'Success!',
+                        );
+                      } else {
+                        showUploadMessage(
+                          context,
+                          'Failed to upload media',
+                        );
+                        return;
+                      }
+                    }
 
-                logFirebaseEvent('Button-Trigger-Push-Notification');
-                triggerPushNotification(
-                  notificationTitle: 'LOX',
-                  notificationText: 'LOX',
-                  notificationImageUrl: currentUserPhoto,
-                  notificationSound: 'default',
-                  userRefs: [currentUserReference],
-                  initialPageName: 'sdfsdfsdfsdf',
-                  parameterData: {},
-                );
-              },
-              text: 'PUSH ME',
-              options: FFButtonOptions(
-                width: 130,
-                height: 40,
-                color: FlutterFlowTheme.of(context).primaryColor,
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: 'Cairo',
-                      color: Colors.white,
+                    logFirebaseEvent('Button-Trigger-Push-Notification');
+                    triggerPushNotification(
+                      notificationTitle: 'LOX',
+                      notificationText: 'LOX',
+                      notificationImageUrl: currentUserPhoto,
+                      notificationSound: 'default',
+                      userRefs: [currentUserReference],
+                      initialPageName: 'sdfsdfsdfsdf',
+                      parameterData: {},
+                    );
+                  },
+                  text: 'PUSH ME',
+                  options: FFButtonOptions(
+                    width: 130,
+                    height: 40,
+                    color: FlutterFlowTheme.of(context).primaryColor,
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Cairo',
+                          color: Colors.white,
+                        ),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1,
                     ),
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
+                    borderRadius: 12,
+                  ),
                 ),
-                borderRadius: 12,
               ),
-            ),
+              Image.network(
+                uploadedFileUrl,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+            ],
           ),
         ),
       ),
