@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../backend/push_notifications/push_notifications_util.dart';
+import '../flutter_flow/flutter_flow_audio_player.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -100,11 +101,14 @@ class _ReportByLawyerWidgetState extends State<ReportByLawyerWidget> {
                         'Uploading file...',
                         showLoading: true,
                       );
-                      final downloadUrls = await Future.wait(selectedMedia.map(
-                          (m) async =>
-                              await uploadData(m.storagePath, m.bytes)));
+                      final downloadUrls = (await Future.wait(selectedMedia.map(
+                              (m) async =>
+                                  await uploadData(m.storagePath, m.bytes))))
+                          .where((u) => u != null)
+                          .toList();
                       ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                      if (downloadUrls != null) {
+                      if (downloadUrls != null &&
+                          downloadUrls.length == selectedMedia.length) {
                         setState(() => uploadedFileUrl = downloadUrls.first);
                         showUploadMessage(
                           context,
@@ -152,6 +156,28 @@ class _ReportByLawyerWidgetState extends State<ReportByLawyerWidget> {
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover,
+              ),
+              FlutterFlowAudioPlayer(
+                audio: Audio.network(
+                  '',
+                  metas: Metas(
+                    id: 'df3hg_-ee9drfay',
+                  ),
+                ),
+                titleTextStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+                playbackDurationTextStyle:
+                    FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: Color(0xFF9D9D9D),
+                          fontSize: 12,
+                        ),
+                fillColor: Color(0xFFEEEEEE),
+                playbackButtonColor: FlutterFlowTheme.of(context).primaryColor,
+                activeTrackColor: Color(0xFF57636C),
+                elevation: 4,
               ),
             ],
           ),
